@@ -36,6 +36,7 @@ p {
 img {
   display: block;
 }
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -59,40 +60,29 @@ body {
   font-size: 16px;
   letter-spacing: 0.02em;
 }
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+.section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
 @media (max-width: 767px) {
   .container {
-    width: 320px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-  }
-
-  .section {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    max-width: 320px;
   }
 }
 @media (min-width: 768px) {
   .container {
-    width: 768px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-  }
-
-  .section {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    max-width: 768px;
   }
 }
 @media (min-width: 1158px) {
   .container {
-    width: 1158px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
+    max-width: 1158px;
   }
-
   .section {
     padding-top: 120px;
     padding-bottom: 120px;
@@ -187,6 +177,7 @@ body {
   }
   .menu-button {
     display: flex;
+    padding: 0;
     justify-content: center;
     align-items: center;
     width: 24px;
@@ -745,8 +736,8 @@ body {
   }
 
   .email-subscribe-input {
-    color: #ffffff;
-    border: 1px solid var(--second-text-color);
+    color: #ffffff4d;
+    border: 1px solid #ffffff4d;
     border-radius: 4px;
     width: 264px;
     font-size: 12px;
@@ -758,14 +749,14 @@ body {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   }
   .email-subscribe-input::placeholder {
-    color: var(--second-text-color);
+    color: #ffffff4d;
   }
   .subscribe-button {
     font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--logo-n-button-color);
+    background-color: var(--logo-n-button-color);
     border-radius: 4px;
     padding: 8px 24px;
     min-width: 165px;
@@ -778,12 +769,17 @@ body {
     border: none;
     color: var(--second-text-color);
     fill: var(--second-text-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .subscribe-button:hover,
+  .subscribe-button:focus {
+    background-color: var(--hover-color);
   }
   .subscribe-icon {
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
     margin-left: 16px;
   }
-  .subscrive-icon-use {
+  .subscribe-icon-use {
   }
   @media (max-width: 767px) {
     .footer {
@@ -816,13 +812,15 @@ body {
       align-items: center;
       row-gap: 16px;
     }
+    .email-subscribe-input {
+    }
   }
   @media (min-width: 768px) and (max-width: 1157px) {
     .footer-container {
       padding-left: 108px;
       padding-right: 108px;
       flex-wrap: wrap;
-      gap: 24px 72px;
+      gap: 72px 24px;
     }
     .subscribe-form {
       display: flex;
@@ -848,6 +846,13 @@ body {
     }
     .subscribe-button {
       align-self: flex-end;
+    }
+    .email-subscribe-input {
+      color: #ffffff;
+      border: 1px solid var(--second-text-color);
+    }
+    .email-subscribe-input::placeholder {
+      color: var(--second-text-color);
     }
   }
 }
@@ -882,6 +887,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fcfcfc;
+    height: 96%;
+    overflow: auto;
 
     border-radius: 4px;
     padding: 72px 24px 24px 24px;
@@ -1006,7 +1013,7 @@ body {
     font-size: 12px;
     line-height: 117%;
     letter-spacing: 0.04em;
-    color: #2e2f42;
+    color: #8e8f99;
   }
 
   .modal-field-wrapper-checkbox {
@@ -1083,7 +1090,7 @@ body {
   @media (max-width: 767px) {
     .modal {
       width: 288px;
-      min-height: 623px;
+      max-height: 623px;
       padding-left: 16px;
       padding-right: 16px;
     }
@@ -1099,7 +1106,8 @@ body {
   @media (min-width: 768px) and (max-width: 1157px) {
     .modal {
       width: 408px;
-      min-height: 584px;
+
+      max-height: 584px;
     }
     .textarea-comment {
       width: 360px;
@@ -1109,7 +1117,7 @@ body {
   @media (min-width: 1158px) {
     .modal {
       width: 408px;
-      min-height: 584px;
+      max-height: 584px;
     }
     .textarea-comment {
       width: 360px;
@@ -1130,8 +1138,10 @@ body {
     left: 0;
     z-index: 99999;
     display: flex;
-    padding: 70px 16px 40px 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     justify-content: center;
+    z-index: 9999;
 
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
       visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -1143,6 +1153,9 @@ body {
     pointer-events: auto;
   }
   .mobile-menu {
+    position: relative;
+    padding-bottom: 40px;
+    padding-top: 78px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
