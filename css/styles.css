@@ -185,6 +185,7 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    stroke: #2e2f42;
   }
 
   @media (max-width: 767px) {
@@ -220,6 +221,12 @@ body {
       row-gap: 12px;
       padding-top: 16px;
       padding-bottom: 16px;
+    }
+    .adress-link {
+      font-size: 12px;
+      line-height: 117%;
+      letter-spacing: 0.04em;
+      max-height: 14px;
     }
   }
   @media (min-width: 1158px) {
@@ -448,7 +455,7 @@ body {
       text-align: center;
     }
     .qualities-text {
-      line-height: 150%;
+      font-weight: 400;
       color: var(--secondary-text-color);
     }
   }
@@ -1189,6 +1196,9 @@ body {
       flex-direction: column-reverse;
       row-gap: 24px;
       margin-bottom: 48px;
+    }
+    .menu-phone {
+      color: var(--logo-n-button-color);
     }
     .team-member-social-list {
     }
